@@ -17,6 +17,9 @@
 		CFC0A8F621390A7F003ED426 /* SUSearchControllerUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = CFC0A8F521390A7F003ED426 /* SUSearchControllerUITests.m */; };
 		CFC0A90521391045003ED426 /* SNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = CFC0A90421391045003ED426 /* SNavigationController.m */; };
 		CFC0A908213914E9003ED426 /* STabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = CFC0A907213914E9003ED426 /* STabBarController.m */; };
+		CFC0A90D21392D3B003ED426 /* SNormalSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CFC0A90C21392D3B003ED426 /* SNormalSearchViewController.m */; };
+		CFC0A91021392E39003ED426 /* SSearchResultVC.m in Sources */ = {isa = PBXBuildFile; fileRef = CFC0A90F21392E39003ED426 /* SSearchResultVC.m */; };
+		CFC0A914213937A8003ED426 /* SCountryModal.m in Sources */ = {isa = PBXBuildFile; fileRef = CFC0A913213937A8003ED426 /* SCountryModal.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +60,12 @@
 		CFC0A90421391045003ED426 /* SNavigationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SNavigationController.m; sourceTree = "<group>"; };
 		CFC0A906213914E9003ED426 /* STabBarController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = STabBarController.h; sourceTree = "<group>"; };
 		CFC0A907213914E9003ED426 /* STabBarController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = STabBarController.m; sourceTree = "<group>"; };
+		CFC0A90B21392D3B003ED426 /* SNormalSearchViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SNormalSearchViewController.h; sourceTree = "<group>"; };
+		CFC0A90C21392D3B003ED426 /* SNormalSearchViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SNormalSearchViewController.m; sourceTree = "<group>"; };
+		CFC0A90E21392E39003ED426 /* SSearchResultVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SSearchResultVC.h; sourceTree = "<group>"; };
+		CFC0A90F21392E39003ED426 /* SSearchResultVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SSearchResultVC.m; sourceTree = "<group>"; };
+		CFC0A912213937A8003ED426 /* SCountryModal.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCountryModal.h; sourceTree = "<group>"; };
+		CFC0A913213937A8003ED426 /* SCountryModal.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCountryModal.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +120,8 @@
 				CFC0A8D221390A6F003ED426 /* AppDelegate.m */,
 				CFC0A8D421390A6F003ED426 /* ViewController.h */,
 				CFC0A8D521390A6F003ED426 /* ViewController.m */,
+				CFC0A9112139376E003ED426 /* Model */,
+				CFC0A90A21392CE1003ED426 /* NormalVC */,
 				CFC0A90921391984003ED426 /* Controller */,
 				CFC0A8D721390A6F003ED426 /* Main.storyboard */,
 				CFC0A8DA21390A7E003ED426 /* Assets.xcassets */,
@@ -148,6 +159,26 @@
 				CFC0A907213914E9003ED426 /* STabBarController.m */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		CFC0A90A21392CE1003ED426 /* NormalVC */ = {
+			isa = PBXGroup;
+			children = (
+				CFC0A90B21392D3B003ED426 /* SNormalSearchViewController.h */,
+				CFC0A90C21392D3B003ED426 /* SNormalSearchViewController.m */,
+				CFC0A90E21392E39003ED426 /* SSearchResultVC.h */,
+				CFC0A90F21392E39003ED426 /* SSearchResultVC.m */,
+			);
+			path = NormalVC;
+			sourceTree = "<group>";
+		};
+		CFC0A9112139376E003ED426 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				CFC0A912213937A8003ED426 /* SCountryModal.h */,
+				CFC0A913213937A8003ED426 /* SCountryModal.m */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -281,9 +312,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				CFC0A8D621390A6F003ED426 /* ViewController.m in Sources */,
+				CFC0A90D21392D3B003ED426 /* SNormalSearchViewController.m in Sources */,
 				CFC0A90521391045003ED426 /* SNavigationController.m in Sources */,
 				CFC0A908213914E9003ED426 /* STabBarController.m in Sources */,
 				CFC0A8E121390A7E003ED426 /* main.m in Sources */,
+				CFC0A91021392E39003ED426 /* SSearchResultVC.m in Sources */,
+				CFC0A914213937A8003ED426 /* SCountryModal.m in Sources */,
 				CFC0A8D321390A6F003ED426 /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

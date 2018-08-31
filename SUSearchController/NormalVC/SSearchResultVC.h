@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  SSearchResultVC.h
 //  SUSearchController
 //
 //  Created by Superman on 2018/8/31.
@@ -8,10 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
-
-
-
+@interface SSearchResultVC : UITableViewController
+@property (nonatomic, strong) NSArray *filterDataArray;
 
 @end
-
