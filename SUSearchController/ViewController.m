@@ -28,14 +28,15 @@ static NSString * const cellID = @"cell";
     // Do any additional setup after loading the view, typically from a nib.
     UITableView *myTableView=[[UITableView alloc]init];
     myTableView.frame=CGRectMake(0, 0,SCREENWIDTH , SCREENHEIGHT);
-    
+    myTableView.delegate=self;
+    myTableView.dataSource=self;
     [self.view addSubview:myTableView];
     _myTableView=myTableView;
     [self.myTableView registerClass:[UITableViewCell class] forCellReuseIdentifier:cellID];
 
-    self.titleArray = @[@"UISearchController 基本使用",@"高仿京东搜索框",@"高仿美团地址搜索"];
-    self.dataArray = @[@"GSNormalSearchVC",@"JDHomeVC",@"GSMTAddressMainVC"];
     
+    self.titleArray = @[@"UISearchController 基本使用",@"高仿京东搜索框",@"高仿美团地址搜索"];
+    self.dataArray = @[@"SNormalSearchViewController",@"JDHomeVC",@"GSMTAddressMainVC"];
 }
 #pragma mark - Table view data source
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {

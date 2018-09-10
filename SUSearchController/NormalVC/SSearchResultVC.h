@@ -11,4 +11,5 @@
 @interface SSearchResultVC : UITableViewController
 @property (nonatomic, strong) NSArray *filterDataArray;
 
+
 @end

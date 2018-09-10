@@ -34,11 +34,12 @@ static NSString *const CellID = @"cellID";
     return _searchController;
 }
 -(UITableView *)tableView{
-    if (_tableView) {
+    if (!_tableView) {
         _tableView = [[UITableView alloc]initWithFrame:self.view.bounds style:UITableViewStylePlain];
         _tableView.delegate=self;
         _tableView.dataSource=self;
         _tableView.tableFooterView=[[UIView alloc]init];
+
         if (@available(iOS 11,*)) {
             self.navigationItem.searchController =self.searchController;
             self.navigationItem.hidesSearchBarWhenScrolling = NO;
@@ -54,6 +55,8 @@ static NSString *const CellID = @"cellID";
     // Do any additional setup after loading the view.
     _dataArray=[SCountryModal sharedDataModal].dataArray;
     _filterArray =_dataArray;
+    NSLog(@"数组数组===%@",_dataArray);
+    self.view.backgroundColor=[UIColor whiteColor];
     self.definesPresentationContext =YES;
     [self.view addSubview:self.tableView];
 }
@@ -64,6 +67,8 @@ static NSString *const CellID = @"cellID";
     _filterArray = searchController.searchBar.text.length >0 ? _filterArray:_dataArray;
     SSearchResultVC *resultVC=(SSearchResultVC *)searchController.searchResultsController;
     resultVC.filterDataArray = _filterArray;
+    
+//    [self.tableView reloadData];
 }
 #pragma mark --UISearchControllerDelegate
 -(void)willPresentSearchController:(UISearchController *)searchController{

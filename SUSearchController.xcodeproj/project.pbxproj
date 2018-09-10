@@ -20,6 +20,11 @@
 		CFC0A90D21392D3B003ED426 /* SNormalSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CFC0A90C21392D3B003ED426 /* SNormalSearchViewController.m */; };
 		CFC0A91021392E39003ED426 /* SSearchResultVC.m in Sources */ = {isa = PBXBuildFile; fileRef = CFC0A90F21392E39003ED426 /* SSearchResultVC.m */; };
 		CFC0A914213937A8003ED426 /* SCountryModal.m in Sources */ = {isa = PBXBuildFile; fileRef = CFC0A913213937A8003ED426 /* SCountryModal.m */; };
+		CFC0A91A213944F9003ED426 /* 1.plist in Resources */ = {isa = PBXBuildFile; fileRef = CFC0A915213944F5003ED426 /* 1.plist */; };
+		CFC0A91B213944F9003ED426 /* city.plist in Resources */ = {isa = PBXBuildFile; fileRef = CFC0A916213944F6003ED426 /* city.plist */; };
+		CFC0A91C213944F9003ED426 /* country.txt in Resources */ = {isa = PBXBuildFile; fileRef = CFC0A917213944F7003ED426 /* country.txt */; };
+		CFC0A91D213944F9003ED426 /* cars_total.plist in Resources */ = {isa = PBXBuildFile; fileRef = CFC0A918213944F8003ED426 /* cars_total.plist */; };
+		CFC0A91E213944F9003ED426 /* citydata.plist in Resources */ = {isa = PBXBuildFile; fileRef = CFC0A919213944F8003ED426 /* citydata.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,6 +71,11 @@
 		CFC0A90F21392E39003ED426 /* SSearchResultVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SSearchResultVC.m; sourceTree = "<group>"; };
 		CFC0A912213937A8003ED426 /* SCountryModal.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCountryModal.h; sourceTree = "<group>"; };
 		CFC0A913213937A8003ED426 /* SCountryModal.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCountryModal.m; sourceTree = "<group>"; };
+		CFC0A915213944F5003ED426 /* 1.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = 1.plist; sourceTree = "<group>"; };
+		CFC0A916213944F6003ED426 /* city.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = city.plist; sourceTree = "<group>"; };
+		CFC0A917213944F7003ED426 /* country.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = country.txt; sourceTree = "<group>"; };
+		CFC0A918213944F8003ED426 /* cars_total.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = cars_total.plist; sourceTree = "<group>"; };
+		CFC0A919213944F8003ED426 /* citydata.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = citydata.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,6 +134,11 @@
 				CFC0A90A21392CE1003ED426 /* NormalVC */,
 				CFC0A90921391984003ED426 /* Controller */,
 				CFC0A8D721390A6F003ED426 /* Main.storyboard */,
+				CFC0A915213944F5003ED426 /* 1.plist */,
+				CFC0A918213944F8003ED426 /* cars_total.plist */,
+				CFC0A916213944F6003ED426 /* city.plist */,
+				CFC0A919213944F8003ED426 /* citydata.plist */,
+				CFC0A917213944F7003ED426 /* country.txt */,
 				CFC0A8DA21390A7E003ED426 /* Assets.xcassets */,
 				CFC0A8DC21390A7E003ED426 /* LaunchScreen.storyboard */,
 				CFC0A8DF21390A7E003ED426 /* Info.plist */,
@@ -286,7 +301,12 @@
 			files = (
 				CFC0A8DE21390A7E003ED426 /* LaunchScreen.storyboard in Resources */,
 				CFC0A8DB21390A7E003ED426 /* Assets.xcassets in Resources */,
+				CFC0A91B213944F9003ED426 /* city.plist in Resources */,
+				CFC0A91E213944F9003ED426 /* citydata.plist in Resources */,
+				CFC0A91C213944F9003ED426 /* country.txt in Resources */,
+				CFC0A91A213944F9003ED426 /* 1.plist in Resources */,
 				CFC0A8D921390A6F003ED426 /* Main.storyboard in Resources */,
+				CFC0A91D213944F9003ED426 /* cars_total.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -497,7 +517,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = ffd.SUSearchController;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -515,7 +535,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = ffd.SUSearchController;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
