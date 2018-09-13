@@ -7,13 +7,40 @@
 //
 
 #import "JDHomeVC.h"
+#import "JDNavigationView.h"
+#import "JDSearchMainVC.h"
+#import "SInfiniteView.h"
+
+
+#define SCREENSIZE [[UIScreen mainScreen] bounds].size
+#define IPhoneX (SCREENSIZE.width == 375.f && SCREENSIZE.height == 812.f ? YES : NO)
 
 @interface JDHomeVC ()
-
+@property (nonatomic, strong) SInfiniteView *infiniteView;
+@property (nonatomic, strong) JDNavigationView *navigationView;
 @end
 
 @implementation JDHomeVC
-
+-(SInfiniteView *)infiniteView{
+    if (!_infiniteView) {
+        NSArray *imgArray=@[@"S0",@"S1",@"S2",@"S3",@"S4",@"S5"];
+        
+        CGFloat height=SCREENSIZE.width/2.f;
+        if (IPhoneX) {
+            height +=24.f;
+            imgArray=@[@"S0X",@"S1X",@"S2X",@"S3X",@"S4X",@"S5X"];
+        }
+        _infiniteView=[[SInfiniteView alloc]initWithFrame:CGRectMake(0, 0, SCREENSIZE.width, height)];
+        _infiniteView.imgArray=imgArray;
+    }
+    return _infiniteView;
+}
+-(JDNavigationView *)navigationView{
+    if (!_navigationView) {
+        
+    }
+    return _navigationView;
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.

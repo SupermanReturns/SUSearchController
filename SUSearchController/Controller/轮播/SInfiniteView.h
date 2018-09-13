@@ -8,6 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
+
 @interface SInfiniteView : UIView
 
+@property (nonatomic , strong) NSArray *imgArray;
+@property (nonatomic , strong) NSArray *desArray;
+@property (nonatomic , strong) void(^imgClick)(NSInteger index);
+@property (nonatomic , assign, getter=isShowImgDescription) BOOL showDescription;
 @end

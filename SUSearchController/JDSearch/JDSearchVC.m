@@ -1,23 +1,18 @@
 //
-//  JDSearchMainVC.m
+//  JDSearchVC.m
 //  SUSearchController
 //
 //  Created by Superman on 2018/9/13.
 //  Copyright © 2018年 Superman. All rights reserved.
 //
 
-#import "JDSearchMainVC.h"
 #import "JDSearchVC.h"
-#import "JDButton.h"
-#import "SCountryModal.h"
-#import "JDSearchHistory.h"
 
-
-@interface JDSearchMainVC ()
+@interface JDSearchVC ()
 
 @end
 
-@implementation JDSearchMainVC
+@implementation JDSearchVC
 
 - (void)viewDidLoad {
     [super viewDidLoad];

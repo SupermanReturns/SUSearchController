@@ -55,7 +55,6 @@ static NSString *const CellID = @"cellID";
     // Do any additional setup after loading the view.
     _dataArray=[SCountryModal sharedDataModal].dataArray;
     _filterArray =_dataArray;
-    NSLog(@"数组数组===%@",_dataArray);
     self.view.backgroundColor=[UIColor whiteColor];
     self.definesPresentationContext =YES;
     [self.view addSubview:self.tableView];
