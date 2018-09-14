@@ -17,11 +17,22 @@
 
 @end;
 
+@protocol SearchResultsUpdating <NSObject>
+@required
 
+- (void)updateSearchResultsForSearchController:(JDSearchVC *)searchController;
+@end
 
 @interface JDSearchVC : UIViewController
 
- 
+@property (nullable, nonatomic, weak) id <SearchResultsUpdating> searchResultsUpdater;
+@property (nullable, nonatomic, weak) id <SearchControllerDelegate> delegate;
+@property (nonatomic, strong, readonly) JDSearchBar *searchBar;
+@property (nullable, nonatomic, strong, readonly) UIViewController *searchResultsController;
+
+- (instancetype)initWithSearchResultsController:(nullable UIViewController *)searchResultsController;
+
+
 @end
 
 
