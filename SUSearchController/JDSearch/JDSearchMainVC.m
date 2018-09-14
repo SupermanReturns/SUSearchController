@@ -130,13 +130,27 @@
 #pragma mark --GSSearchControllerDelegate
 -(void)didPresentSearchController:(JDSearchVC *)searchController{
     [self addChildViewController:searchController];
-    
+    [self.view addSubview:searchController.view];
+}
+-(void)didDismissSearchController:(JDSearchVC *)searchController{
+    [searchController removeFromParentViewController];
+    [searchController.view removeFromSuperview];
 }
 - (void)messageAction{
     [[NSNotificationCenter defaultCenter] postNotificationName:@"searchVCRemove" object:nil];
     [self removeFromParentViewController];
     [self.view removeFromSuperview];
 }
+#pragma mark --GSSearchResultsUpdating
+-(void)updateSearchResultsForSearchController:(JDSearchVC *)searchController{
+    SSearchResultVC *resultVC=(SSearchResultVC *)searchController.searchResultsController;
+    NSPredicate *predicate=[NSPredicate predicateWithFormat:@"(SELF CONTAINS %@)",searchController.searchBar.text];
+    NSArray *dataArray=[SCountryModal sharedDataModal].dataArray;
+    NSArray *filterArray=[dataArray filteredArrayUsingPredicate:predicate];
+    filterArray = searchController.searchBar.text >0:filterArray:dataArray;
+    resultVC.filterDataArray=filterArray;
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
