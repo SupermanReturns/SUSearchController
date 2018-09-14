@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface JDSearchHistory : UITableView
+@interface JDSearchHistory : UITableView<UITableViewDelegate,UITableViewDataSource>
+
+@property (nonatomic, strong) NSArray *historyData;
+@property (nonatomic, strong) void(^scrollAction)(void);
+@property (nonatomic, strong) void(^hotBtnAction)(NSString *);
 
 @end
