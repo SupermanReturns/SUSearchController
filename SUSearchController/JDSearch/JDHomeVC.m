@@ -37,7 +37,24 @@
 }
 -(JDNavigationView *)navigationView{
     if (!_navigationView) {
-        
+        CGFloat yCoordinate=20;
+        if (IPhoneX) {
+            yCoordinate=44;
+        }
+        __weak typeof(self) weakSelf =self;
+        _navigationView = [[JDNavigationView alloc]initWithFrame:CGRectMake(0, yCoordinate, SCREENSIZE.width, 44)];
+        _navigationView.searchActionBlock = ^{
+            [weakSelf goSearchPage];
+        };
+        _navigationView.scanActionBlock = ^{
+            NSLog(@"扫一扫");
+        };
+        _navigationView.messageActionBlock = ^{
+            NSLog(@"消息");
+        };
+        _navigationView.audioActionBlock = ^{
+            NSLog(@"语音");
+        };
     }
     return _navigationView;
 }
@@ -45,7 +62,9 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
 }
+- (void)goSearchPage{
 
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
