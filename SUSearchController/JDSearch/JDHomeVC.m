@@ -10,6 +10,8 @@
 #import "JDNavigationView.h"
 #import "JDSearchMainVC.h"
 #import "SInfiniteView.h"
+#import "UIView+Size.h"
+
 
 
 #define SCREENSIZE [[UIScreen mainScreen] bounds].size
@@ -61,9 +63,59 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(searchVCRemove) name:@"searchVCRemove" object:nil];
+    
+    self.view.backgroundColor=[UIColor whiteColor];
+    self.automaticallyAdjustsScrollViewInsets=NO;
+    [self.view addSubview:self.infiniteView];
+    [self.view addSubview:self.navigationView];
+}
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    [self.navigationController.navigationBar setHidden:YES];
+}
+-(void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
+    [self.navigationController.navigationBar setHidden:NO];
+}
+- (void)searchVCRemove{
+    __weak typeof(self) weakSelf =self;
+    [UIView animateWithDuration:0.2 animations:^{
+        weakSelf.navigationView.searchView.frame=({
+            CGRect frame=weakSelf.navigationView.searchView.frame;
+            frame.origin.x += 40;
+            frame.size.width -= 40;
+            frame;
+        });
+        weakSelf.navigationView.audioBtn.frame=({
+            CGRect frame=weakSelf.navigationView.audioBtn.frame;
+            frame.origin.x=weakSelf.navigationView.gs_width-20;
+            frame;
+        });
+    }];
+    CABasicAnimation *anim=[CABasicAnimation animationWithKeyPath:@"transform.scale"];
+    anim.duration=0.2;
+    anim.fromValue=@0;
+    anim.toValue=@1;
+    anim.fillMode=kCAFillModeForwards;
+    anim.removedOnCompletion=NO;
+    [_navigationView.messageBtn.layer addAnimation:anim forKey:nil];
 }
 - (void)goSearchPage{
-
+    _navigationView.searchView.frame=({
+        CGRect frame=_navigationView.searchView.frame;
+        frame.origin.x -= 40;
+        frame.size.width += 40;
+        frame;
+    });
+    _navigationView.audioBtn.frame=({
+        CGRect frame = _navigationView.audioBtn.frame;
+        frame.origin.x = _navigationView.gs_width - 20;
+        frame;
+    });
+    JDSearchMainVC *searchVC = [[JDSearchMainVC alloc]init];
+    [self addChildViewController:searchVC];
+    [self.view addSubview:searchVC.view];
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

@@ -147,7 +147,7 @@
     NSPredicate *predicate=[NSPredicate predicateWithFormat:@"(SELF CONTAINS %@)",searchController.searchBar.text];
     NSArray *dataArray=[SCountryModal sharedDataModal].dataArray;
     NSArray *filterArray=[dataArray filteredArrayUsingPredicate:predicate];
-    filterArray = searchController.searchBar.text >0:filterArray:dataArray;
+    filterArray = searchController.searchBar.text >0 ? filterArray:dataArray;
     resultVC.filterDataArray=filterArray;
 }
 
