@@ -15,6 +15,10 @@
 		CF289E10214AABC500E3ED41 /* JDSearchVC.m in Sources */ = {isa = PBXBuildFile; fileRef = CF289E0F214AABC500E3ED41 /* JDSearchVC.m */; };
 		CF289E13214AAC1200E3ED41 /* JDSearchHistory.m in Sources */ = {isa = PBXBuildFile; fileRef = CF289E12214AAC1200E3ED41 /* JDSearchHistory.m */; };
 		CF289E16214AAC9F00E3ED41 /* JDSearchBar.m in Sources */ = {isa = PBXBuildFile; fileRef = CF289E15214AAC9F00E3ED41 /* JDSearchBar.m */; };
+		CF289E1A214E0D9500E3ED41 /* MTAddressMainVC.m in Sources */ = {isa = PBXBuildFile; fileRef = CF289E19214E0D9500E3ED41 /* MTAddressMainVC.m */; };
+		CF289E1D214E0DC200E3ED41 /* SegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = CF289E1C214E0DC200E3ED41 /* SegmentedControl.m */; };
+		CF289E20214E0DE200E3ED41 /* AddressTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = CF289E1F214E0DE200E3ED41 /* AddressTableView.m */; };
+		CF289E23214E0E2B00E3ED41 /* MTAddressModal.m in Sources */ = {isa = PBXBuildFile; fileRef = CF289E22214E0E2B00E3ED41 /* MTAddressModal.m */; };
 		CF2ED98E21467565000408B1 /* SInfiniteView.m in Sources */ = {isa = PBXBuildFile; fileRef = CF2ED98D21467565000408B1 /* SInfiniteView.m */; };
 		CF2ED9AA21467623000408B1 /* NSLayoutConstraint+MASDebugAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = CF2ED99221467623000408B1 /* NSLayoutConstraint+MASDebugAdditions.m */; };
 		CF2ED9AB21467623000408B1 /* ViewController+MASAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = CF2ED99B21467623000408B1 /* ViewController+MASAdditions.m */; };
@@ -81,6 +85,14 @@
 		CF289E12214AAC1200E3ED41 /* JDSearchHistory.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JDSearchHistory.m; sourceTree = "<group>"; };
 		CF289E14214AAC9F00E3ED41 /* JDSearchBar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JDSearchBar.h; sourceTree = "<group>"; };
 		CF289E15214AAC9F00E3ED41 /* JDSearchBar.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JDSearchBar.m; sourceTree = "<group>"; };
+		CF289E18214E0D9500E3ED41 /* MTAddressMainVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MTAddressMainVC.h; sourceTree = "<group>"; };
+		CF289E19214E0D9500E3ED41 /* MTAddressMainVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MTAddressMainVC.m; sourceTree = "<group>"; };
+		CF289E1B214E0DC200E3ED41 /* SegmentedControl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SegmentedControl.h; sourceTree = "<group>"; };
+		CF289E1C214E0DC200E3ED41 /* SegmentedControl.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SegmentedControl.m; sourceTree = "<group>"; };
+		CF289E1E214E0DE200E3ED41 /* AddressTableView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AddressTableView.h; sourceTree = "<group>"; };
+		CF289E1F214E0DE200E3ED41 /* AddressTableView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AddressTableView.m; sourceTree = "<group>"; };
+		CF289E21214E0E2B00E3ED41 /* MTAddressModal.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MTAddressModal.h; sourceTree = "<group>"; };
+		CF289E22214E0E2B00E3ED41 /* MTAddressModal.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MTAddressModal.m; sourceTree = "<group>"; };
 		CF2ED98C21467565000408B1 /* SInfiniteView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SInfiniteView.h; sourceTree = "<group>"; };
 		CF2ED98D21467565000408B1 /* SInfiniteView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SInfiniteView.m; sourceTree = "<group>"; };
 		CF2ED99121467623000408B1 /* MASCompositeConstraint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASCompositeConstraint.h; sourceTree = "<group>"; };
@@ -175,6 +187,19 @@
 				CF289E0C214AA8BD00E3ED41 /* UIView+Size.m */,
 			);
 			path = Category;
+			sourceTree = "<group>";
+		};
+		CF289E17214E0D5800E3ED41 /* MTSearch */ = {
+			isa = PBXGroup;
+			children = (
+				CF289E18214E0D9500E3ED41 /* MTAddressMainVC.h */,
+				CF289E19214E0D9500E3ED41 /* MTAddressMainVC.m */,
+				CF289E1B214E0DC200E3ED41 /* SegmentedControl.h */,
+				CF289E1C214E0DC200E3ED41 /* SegmentedControl.m */,
+				CF289E1E214E0DE200E3ED41 /* AddressTableView.h */,
+				CF289E1F214E0DE200E3ED41 /* AddressTableView.m */,
+			);
+			path = MTSearch;
 			sourceTree = "<group>";
 		};
 		CF2ED98A214669D9000408B1 /* JDSearch */ = {
@@ -287,6 +312,7 @@
 				CFC0A8D521390A6F003ED426 /* ViewController.m */,
 				CFC0A9112139376E003ED426 /* Model */,
 				CF2ED98A214669D9000408B1 /* JDSearch */,
+				CF289E17214E0D5800E3ED41 /* MTSearch */,
 				CFC0A90A21392CE1003ED426 /* NormalVC */,
 				CFC0A90921391984003ED426 /* Controller */,
 				CFC0A8D721390A6F003ED426 /* Main.storyboard */,
@@ -350,6 +376,8 @@
 			children = (
 				CFC0A912213937A8003ED426 /* SCountryModal.h */,
 				CFC0A913213937A8003ED426 /* SCountryModal.m */,
+				CF289E21214E0E2B00E3ED41 /* MTAddressModal.h */,
+				CF289E22214E0E2B00E3ED41 /* MTAddressModal.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -501,6 +529,7 @@
 				CF289E16214AAC9F00E3ED41 /* JDSearchBar.m in Sources */,
 				CF2ED9AC21467623000408B1 /* MASCompositeConstraint.m in Sources */,
 				CFC0A908213914E9003ED426 /* STabBarController.m in Sources */,
+				CF289E20214E0DE200E3ED41 /* AddressTableView.m in Sources */,
 				CF2ED9AB21467623000408B1 /* ViewController+MASAdditions.m in Sources */,
 				CF2ED9B321467623000408B1 /* MASViewAttribute.m in Sources */,
 				CF289E10214AABC500E3ED41 /* JDSearchVC.m in Sources */,
@@ -508,6 +537,7 @@
 				CF2ED9B221467623000408B1 /* MASViewConstraint.m in Sources */,
 				CF289E06214AA37D00E3ED41 /* JDNavigationView.m in Sources */,
 				CF2ED98E21467565000408B1 /* SInfiniteView.m in Sources */,
+				CF289E1A214E0D9500E3ED41 /* MTAddressMainVC.m in Sources */,
 				CF289E0D214AA8BD00E3ED41 /* UIView+Size.m in Sources */,
 				CF2ED9AD21467623000408B1 /* MASConstraintMaker.m in Sources */,
 				CFC0A8E121390A7E003ED426 /* main.m in Sources */,
@@ -516,7 +546,9 @@
 				CF2ED9B721467689000408B1 /* GSProxy.m in Sources */,
 				CFC0A914213937A8003ED426 /* SCountryModal.m in Sources */,
 				CF2ED9B121467623000408B1 /* MASConstraint.m in Sources */,
+				CF289E1D214E0DC200E3ED41 /* SegmentedControl.m in Sources */,
 				CFC0A8D321390A6F003ED426 /* AppDelegate.m in Sources */,
+				CF289E23214E0E2B00E3ED41 /* MTAddressModal.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
