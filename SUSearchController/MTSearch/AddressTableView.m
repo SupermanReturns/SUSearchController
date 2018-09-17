@@ -8,13 +8,46 @@
 
 #import "AddressTableView.h"
 #import "AddressFirstHeaderView.h"
+#import "AddressOtherHeaderView.h"
+#import "AddressSectionCell.h"
+#import "SSearchResultVC.h"
 
-@interface AddressTableView ()
-
+@interface AddressTableView ()<UITableViewDelegate,UITableViewDataSource,headerViewDelegate,UISearchResultsUpdating,UISearchControllerDelegate>{
+    BOOL _countyDisplay;
+    CGFloat _countyHeight;
+    BOOL isRightIndexHidden;//是否隐藏左边的索引
+}
+@property(nonatomic, strong) UISearchController *searchCtrl;
+@property (nonatomic, strong) NSMutableDictionary *sectionDict;//组数据
+@property (nonatomic, strong) NSMutableArray *indexesArray;
+@property (nonatomic, strong) NSArray *hotCityArray;
+@property (nonatomic, strong)  NSMutableArray *countyArray;//存放区县数据
+@property (nonatomic, strong) NSMutableArray *filterArray;
 @end
 
 @implementation AddressTableView
+static NSString *const cellID = @"cellID";
+static NSString *const headerCellID = @"headerCellID";
 
+-(NSMutableArray *)filterArray{
+    if (!_filterArray) {
+        _filterArray =[NSMutableArray array];
+    }
+    return _filterArray;
+}
+-(UISearchController *)searchCtrl{
+    if (!_searchCtrl) {
+        SSearchResultVC *resultVC=[[SSearchResultVC alloc]init];
+        _searchCtrl=[[UISearchController alloc]initWithSearchResultsController:resultVC];
+        _searchCtrl.searchResultsUpdater=self;
+        _searchCtrl.delegate = self;
+        _searchCtrl.searchBar.placeholder = @"输入城市名称";
+        _searchCtrl.hidesNavigationBarDuringPresentation = NO;
+        _searchCtrl.dimsBackgroundDuringPresentation = YES;
+        
+        
+    }
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     

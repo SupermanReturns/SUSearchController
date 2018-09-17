@@ -1,5 +1,5 @@
 //
-//  AddressOtherHeaderView.h
+//  SelectButton.h
 //  SUSearchController
 //
 //  Created by Superman on 2018/9/16.
@@ -8,9 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AddressOtherHeaderView : UITableViewHeaderFooterView
-
-@property (nonatomic, strong) NSString *text;
-
+@interface SelectButton : UIButton
 
 @end
