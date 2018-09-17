@@ -45,6 +45,67 @@ static NSString *const headerCellID = @"headerCellID";
         _searchCtrl.hidesNavigationBarDuringPresentation = NO;
         _searchCtrl.dimsBackgroundDuringPresentation = YES;
         
+        //修改取消和光标颜色
+        _searchCtrl.searchBar.tintColor = [UIColor grayColor];
+        //修改取消按钮的标题
+        [[UIBarButtonItem appearanceWhenContainedInInstancesOfClasses:@[[UISearchBar class]]] setTitle:@"取消"];
+
+        _searchCtrl.searchBar.barTintColor = [UIColor whiteColor];
+        //取消上下两条线
+        NSArray *subViewArr = _searchCtrl.searchBar.subviews.firstObject.subviews;
+        for (UIView *view in subViewArr) {
+            if ([view isKindOfClass:NSClassFromString(@"UISearchBarBackground")])
+            {
+                [view removeFromSuperview];
+            }
+        }
+        
+        
+        //设置textField背景颜色
+        UITextField *textField = [_searchCtrl.searchBar valueForKey:@"_searchField"];
+        textField.backgroundColor = [UIColor colorWithRed:0.97 green:0.97 blue:0.97 alpha:1];
+    }
+    return _searchCtrl;
+}
+-(NSMutableArray *)indexesArray{
+    if (!_indexesArray) {
+        _indexesArray = [NSMutableArray arrayWithObjects:@"!", @"#", @"%", nil];
+    }
+    return _indexesArray;
+}
+-(NSArray *)hotCityArray{
+    if (!_hotCityArray) {
+        _hotCityArray = [NSArray arrayWithObjects:@"北京",@"上海",@"广州",@"深圳", nil];
+    }
+    return _hotCityArray;
+}
+#pragma  mark --UISearchResultsUpdating
+-(void)updateSearchResultsForSearchController:(UISearchController *)searchController{
+    
+}
+#pragma  mark --UISearchControllerDelegate
+-(void)willPresentSearchController:(UISearchController *)searchController{
+    
+    isRightIndexHidden = YES;
+    [self reloadSectionIndexTitles];
+}
+- (void)didDismissSearchController:(UISearchController *)searchController {
+    isRightIndexHidden = NO;
+    [self reloadSectionIndexTitles];
+}
+#pragma mark - headerView delegate method
+- (void)citySelectAction:(BOOL)isSelect {
+    //标记当前选择的是展开还是收缩
+    NSIndexPath *indexPath=[NSIndexPath indexPathForRow:0 inSection:0 ];
+    
+    if (_countyDisplay) {//展开的情况
+        NSString *currentCity=[[NSUserDefaults standardUserDefaults]objectForKey:@"currentCity"];
+        _countyArray = [NSMutableArray arrayWithObject:@"全城"];
+        [_countyArray addObjectsFromArray:_cityDataDict[currentCity]];
+
+        //计算行高
+        NSUInteger lines = (self.countyArray.count +3 -1)/3;
+        _countyHeight =lines*44;
         
     }
 }
