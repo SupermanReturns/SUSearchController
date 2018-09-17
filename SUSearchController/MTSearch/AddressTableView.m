@@ -95,7 +95,9 @@ static NSString *const headerCellID = @"headerCellID";
 }
 #pragma mark - headerView delegate method
 - (void)citySelectAction:(BOOL)isSelect {
+    
     //标记当前选择的是展开还是收缩
+    _countyDisplay = isSelect;
     NSIndexPath *indexPath=[NSIndexPath indexPathForRow:0 inSection:0 ];
     
     if (_countyDisplay) {//展开的情况
@@ -141,7 +143,7 @@ static NSString *const headerCellID = @"headerCellID";
         //indexArray存储首字母的数组
         if (![self.indexesArray containsObject:firstWord]) {
             [self.indexesArray addObject:firstWord];
-            NSMutableArray *citiesArr = [NSMutableArray arrayWithCapacity:cityName];
+            NSMutableArray *citiesArr = [NSMutableArray arrayWithObject:cityName];
             _sectionDict[firstWord] = citiesArr;
         }else{
             NSMutableArray *citiesArr = _sectionDict[firstWord];
@@ -241,6 +243,7 @@ static NSString *const headerCellID = @"headerCellID";
             break;
         default:
             title = _indexesArray[section];
+            break;
     }
     
     AddressOtherHeaderView *headerView =[tableView dequeueReusableHeaderFooterViewWithIdentifier:headerCellID];
@@ -315,5 +318,7 @@ static NSString *const headerCellID = @"headerCellID";
     // Pass the selected object to the new view controller.
 }
 */
+
+
 
 @end

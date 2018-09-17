@@ -36,7 +36,7 @@ static NSString * const cellID = @"cell";
 
     
     self.titleArray = @[@"UISearchController 基本使用",@"高仿京东搜索框",@"高仿美团地址搜索"];
-    self.dataArray = @[@"SNormalSearchViewController",@"JDHomeVC",@"GSMTAddressMainVC"];
+    self.dataArray = @[@"SNormalSearchViewController",@"JDHomeVC",@"MTAddressMainVC"];
 }
 #pragma mark - Table view data source
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
