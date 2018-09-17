@@ -124,46 +124,154 @@ static NSString *const headerCellID = @"headerCellID";
         self.delegate = self;
         self.tableHeaderView=self.searchCtrl.searchBar;
         
+        [self registerClass:[UITableViewCell class] forCellReuseIdentifier:cellID];
+        [self registerClass:[AddressOtherHeaderView class] forHeaderFooterViewReuseIdentifier:headerCellID];
     }
     return self;
 }
-- (void)viewDidLoad {
-    [super viewDidLoad];
+-(void)setCityArr:(NSArray *)cityArr{
+    _cityArr = cityArr;
     
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    _sectionDict =[NSMutableDictionary dictionary];
+    for (NSDictionary *dict in self.cityArr) {
+        NSString *cityName = dict[@"name"];
+        NSString *cityPinyin = dict[@"pinyin"];
+        NSString *firstWord = [[cityPinyin substringToIndex:1] uppercaseString];
+
+        //indexArray存储首字母的数组
+        if (![self.indexesArray containsObject:firstWord]) {
+            [self.indexesArray addObject:firstWord];
+            NSMutableArray *citiesArr = [NSMutableArray arrayWithCapacity:cityName];
+            _sectionDict[firstWord] = citiesArr;
+        }else{
+            NSMutableArray *citiesArr = _sectionDict[firstWord];
+            [citiesArr addObject:cityName];
+        }
+        
+    }
+    [_indexesArray sortUsingSelector:@selector(compare:)];
+    [self reloadData];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
+
 
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
 #warning Incomplete implementation, return the number of sections
-    return 0;
+    return self.sectionDict.count;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 #warning Incomplete implementation, return the number of rows
-    return 0;
+    if (section ==0) {
+        return _countyDisplay?1:0;
+    }else if (section<4){
+        return 1;
+    }
+    NSMutableArray *citiesArr =self.sectionDict[self.indexesArray[section]];
+    return citiesArr.count;
 }
 
-/*
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
+    if (indexPath.section<4) {
+        NSArray *cityArr;
+        switch (indexPath.section) {
+            case 0:
+                cityArr = _countyArray;
+                break;
+            case 1: //当前城市
+                cityArr = @[@"长沙"];
+                break;
+            case 2: //历史访问的城市
+                cityArr = self.hotCityArray;
+                break;
+            case 3:
+                cityArr = self.hotCityArray;
+                break;
+            default:
+                break;
+        }
+        AddressSectionCell *cell=[[AddressSectionCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"sectionCell" cityArr:cityArr];
+        if (indexPath.section==0) {
+            cell.btnBlock = ^(NSString *cityName) {
+                if (self.selectCityAction) {
+                    self.selectCityAction(cityName);
+                }
+            };
+        }else{
+            cell.btnBlock = ^(NSString *cityName) {
+                [[NSUserDefaults standardUserDefaults]setObject:[NSString stringWithFormat:@"%@市",cityName] forKey:@"currentCity"];
+                
+                if (self.selectCityAction) {
+                    self.selectCityAction(cityName);
+                }
+            };
+        }
+        return cell;
+    }
     
-    // Configure the cell...
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID forIndexPath:indexPath];
+    NSArray *arr = _sectionDict[_indexesArray[indexPath.section]];
+    cell.textLabel.text=arr[indexPath.row];
     
     return cell;
 }
-*/
-
+-(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
+    NSString *title;
+    switch (section) {
+        case 0:
+        {
+            AddressFirstHeaderView *headerView = [tableView dequeueReusableHeaderFooterViewWithIdentifier:@"firstSection"];
+            if (!headerView) {
+                headerView = [[AddressFirstHeaderView alloc] initWithReuseIdentifier:@"firstSection"];
+            }
+            headerView.delegate = self;
+            return headerView;
+        }
+            break;
+        case 1:
+            title = @"定位城市";
+            break;
+        case 2:
+            title = @"最近访问城市";
+            break;
+        case 3:
+            title = @"热门城市";
+            break;
+        default:
+            title = _indexesArray[section];
+    }
+    
+    AddressOtherHeaderView *headerView =[tableView dequeueReusableHeaderFooterViewWithIdentifier:headerCellID];
+    if (!headerView) {
+        headerView=[[AddressOtherHeaderView alloc]initWithReuseIdentifier:headerCellID];
+    }
+    headerView.text=title;
+    return headerView;
+}
+-(NSArray<NSString *> *)sectionIndexTitlesForTableView:(UITableView *)tableView{
+    return isRightIndexHidden?0:self.indexesArray;
+}
+#pragma mark -- UITableViewDelegate
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    if (self.selectCityAction) {
+        NSArray *arr = _sectionDict[_indexesArray[indexPath.section]];
+        NSString *city=arr[indexPath.row];
+        [[NSUserDefaults standardUserDefaults]setObject:[NSString stringWithFormat:@"%@市",city] forKey:@"currentCity"];
+        self.selectCityAction(city);
+    }
+}
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    if (indexPath.section==0) {
+        return _countyHeight;
+    }
+    return 44;
+}
+-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+    return 30;
+}
 /*
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
