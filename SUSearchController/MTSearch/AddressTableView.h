@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AddressTableView : UITableViewController
+@interface AddressTableView : UITableView
 
 @property (nonatomic, strong) NSMutableDictionary *cityDataDict;
 @property (nonatomic, strong) NSArray      *cityArr;

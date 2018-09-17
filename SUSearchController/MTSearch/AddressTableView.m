@@ -106,8 +106,26 @@ static NSString *const headerCellID = @"headerCellID";
         //计算行高
         NSUInteger lines = (self.countyArray.count +3 -1)/3;
         _countyHeight =lines*44;
+        [self beginUpdates];
+        [self insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
+        [self endUpdates];
+    }else{
+        [_countyArray removeAllObjects];
+        //更新tableView
+        [self beginUpdates];
+        [self deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
+        [self endUpdates];
+    }
+}
+#pragma mark -- system method
+- (instancetype)initWithFrame:(CGRect)frame style:(UITableViewStyle)style{
+    if(self = [super initWithFrame:frame style:style]){
+        self.dataSource=self;
+        self.delegate = self;
+        self.tableHeaderView=self.searchCtrl.searchBar;
         
     }
+    return self;
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
