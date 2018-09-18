@@ -20,17 +20,15 @@
         [self addSubview:titleLabel];
         
         SelectButton *citySelectBtn = [SelectButton buttonWithType:UIButtonTypeCustom];
+        citySelectBtn.frame =CGRectMake([UIScreen mainScreen].bounds.size.width-130, 0, 80, 30);
+
         [citySelectBtn setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
         [citySelectBtn.titleLabel setFont:[UIFont systemFontOfSize:14]];
         [citySelectBtn setTitle:@"切换区县" forState:UIControlStateNormal];
         [citySelectBtn setImage:[UIImage imageNamed:@"down"] forState:UIControlStateNormal];
-        
-//        [citySelectBtn setBackgroundImage:[UIImage imageNamed:@"down"] forState:UIControlStateNormal];
-
         [citySelectBtn setImage:[UIImage imageNamed:@"up"] forState:UIControlStateSelected];
         
         [citySelectBtn addTarget:self action:@selector(citySelect:) forControlEvents:UIControlEventTouchUpInside];
-        citySelectBtn.frame =CGRectMake([UIScreen mainScreen].bounds.size.width-100, 0, 80, 30);
         [self addSubview:citySelectBtn];
     }
     return self;
