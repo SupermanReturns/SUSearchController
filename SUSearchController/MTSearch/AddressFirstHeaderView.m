@@ -13,6 +13,7 @@
 -(instancetype)initWithReuseIdentifier:(NSString *)reuseIdentifier{
     if (self=[super initWithReuseIdentifier:reuseIdentifier]) {
         self.contentView.backgroundColor= [UIColor colorWithRed:0.97 green:0.97 blue:0.97 alpha:1];
+
         UILabel *titleLabel = [[UILabel alloc]initWithFrame:CGRectMake(10, 0, 200, 30)];
         titleLabel.textColor=[UIColor grayColor];
         titleLabel.font=[UIFont systemFontOfSize:14];

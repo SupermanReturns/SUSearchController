@@ -48,10 +48,12 @@ static NSString *const headerCellID = @"headerCellID";
         
         //修改取消和光标颜色
         _searchCtrl.searchBar.tintColor = [UIColor grayColor];
+
         //修改取消按钮的标题
         [[UIBarButtonItem appearanceWhenContainedInInstancesOfClasses:@[[UISearchBar class]]] setTitle:@"取消"];
 
         _searchCtrl.searchBar.barTintColor = [UIColor whiteColor];
+
         //取消上下两条线
         NSArray *subViewArr = _searchCtrl.searchBar.subviews.firstObject.subviews;
         for (UIView *view in subViewArr) {
