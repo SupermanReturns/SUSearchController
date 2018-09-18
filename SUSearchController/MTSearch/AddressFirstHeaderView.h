@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 @protocol headerViewDelegate <NSObject>
 @required
--(void)citySelectionAction:(BOOL)isSelect;
+-(void)citySelectAction:(BOOL)isSelect;
 @end
 
 @interface AddressFirstHeaderView : UITableViewHeaderFooterView

@@ -12,6 +12,7 @@
 #import "AddressSectionCell.h"
 #import "SSearchResultVC.h"
 
+
 @interface AddressTableView ()<UITableViewDelegate,UITableViewDataSource,headerViewDelegate,UISearchResultsUpdating,UISearchControllerDelegate>{
     BOOL _countyDisplay;
     CGFloat _countyHeight;
@@ -95,7 +96,7 @@ static NSString *const headerCellID = @"headerCellID";
 }
 #pragma mark - headerView delegate method
 - (void)citySelectAction:(BOOL)isSelect {
-    
+    NSLog(@"代理");
     //标记当前选择的是展开还是收缩
     _countyDisplay = isSelect;
     NSIndexPath *indexPath=[NSIndexPath indexPathForRow:0 inSection:0 ];

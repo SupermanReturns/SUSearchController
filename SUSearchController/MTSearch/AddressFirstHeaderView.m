@@ -24,6 +24,9 @@
         [citySelectBtn.titleLabel setFont:[UIFont systemFontOfSize:14]];
         [citySelectBtn setTitle:@"切换区县" forState:UIControlStateNormal];
         [citySelectBtn setImage:[UIImage imageNamed:@"down"] forState:UIControlStateNormal];
+        
+//        [citySelectBtn setBackgroundImage:[UIImage imageNamed:@"down"] forState:UIControlStateNormal];
+
         [citySelectBtn setImage:[UIImage imageNamed:@"up"] forState:UIControlStateSelected];
         
         [citySelectBtn addTarget:self action:@selector(citySelect:) forControlEvents:UIControlEventTouchUpInside];
@@ -41,7 +44,7 @@
 -(void)citySelect:(UIButton *)btn{
     btn.selected = !btn.selected;
     if (self.delegate) {
-        [self.delegate citySelectionAction:btn.selected];
+        [self.delegate citySelectAction:btn.selected];
     }
 }
 /*
